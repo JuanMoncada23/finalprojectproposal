@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>RedDragons Project Proposal -- DeadlineWebService</title>
+		<meta charset="utf-8">
+		<style>
+			body {background-color: rgb(235, 212, 179);}
+			h1, h2 {text-align: center;}
+			h3, h4 {margin-bottom: 0;}
+			ol, ul {margin-top: 0;}
+			p {margin: 0; text-indent: 10px;}
+		</style>
+	</head>
+	<body>
+		<h1>Deadline Web Service</h1>
+		<h2>The RedDragons Team</h2>
+		<h3>Latest Update</h3>
+			<p>The front end of the WebApp can currently:</p>
+			<ul>
+				<li>Create a list of tasks and their deadlines with countdown timer</li>
+				<li>Expire tasks upon reaching the deadline</li>
+				<li>Mark tasks as finished, halting the countdown</li>
+				<li>Load tasks from local JSON objects</li>
+				<li>Save tasks and user information persistently to the database</li>
+			</ul>
+			<p>The logic-tier of the WebApp can currently:</p>
+			<ul>
+				<li>Receive requests from the front end and store received data on its behalf</li>
+				<li>Run within a docker container</li>
+			</ul>
+			<p>The storage solution can currently:</p>
+			<ul>
+				<li>Store data sent to it by the logic-tier</li>
+			</ul>
+		<h3>End-User Description</h3>
+			<p>The application allows users to create and set timers for a list of tasks to be 
+				completed by a certain time. The user receives periodic reminders in the browser 
+				about active timers as well as &ldquo;constructive&rdquo; criticism regarding 
+				how close their tasks come to expiring.</p>
+		<h3>Priority Features</h3>
+			<p>The features required to make Deadline Web Service usable are:</p>
+			<ol>
+				<li>Create and edit a list of tasks and their deadlines</li>
+				<li>Attach a countdown timer to each task</li>
+				<li>Store tasks persistently for users</li>
+				<li>Expire tasks once the deadline is passed, sounding an alarm to the user</li>
+				<li>Provide periodic reminders about active tasks based on remaining time</li>
+				<li>Provide motivation to complete tasks before the deadline</li>
+				<li>Mark tasks as finished, halting the countdown</li>
+			</ol>
+		<h3>Additional Desired Features</h3>
+			<p>If there were extra time, we would like to add:</p>
+			<ul>
+				<li>Daily emails to users about their active tasks</li>
+				<li>Marking tasks with a higher or lower priority</li>
+				<li>Presenting average time taken per task and tracking improvement</li>
+				<li>Color-code tasks based upon remaining time</li>
+			</ul>
+		<h3>Technical Requirements</h3>
+			<p>Building the priority features will require:</p>
+			<ul>
+				<li>HTML for webpage content</li>
+				<li>CSS for webpage styling</li>
+				<li>JavaScript / React for webpage interactions</li>
+				<li>Go for the logic tier</li>
+				<li>A database storage solution (MongoDB Atlas) for persistent storage</li>
+				<li>Microsoft Azure for app hosting and data storage</li>
+			</ul>
+		<h3>Demonstrating Learning From the Class</h3>
+			<h4>HTML / CSS</h4>
+				<p>Deadline Web Service utilizes HTML to provide static content for the webpage
+					the app is built in. It also uses CSS to style portions of the webpage and
+					the React App. These aspects of the project demonstrate knowledge and skills
+					gained during Sprint 5 (web development).</p>
+			<h4>JavaScript / React</h4>
+				<p>The core of the Deadline Web Service app is written in the JavaScript React 
+					framework, in order to make the app highly interactive in the browser. This
+					provides the functionality that allows users to interact with the app. It 
+					also demonstrates knowledge and skills gained from Sprints 5 and 7 (web 
+					development and React development).</p>
+			<h4>Golang</h4>
+				<p>The logic-tier of Deadline Web Service is written in Golang. It establishes a
+					connection to the MongoDB Atlas database and exposes endpoint APIs that the
+					WebApp uses to save and load data persistently for users. This expands upon
+					the main activity of Sprint 4 (client-server interactions in Golang with 
+					JSON).</p>
+			<h4>Microsoft Azure / GitHub</h4>
+				<p>Microsoft Azure is used to host the Deadline Web Service, a dockerized Go 
+					logic-tier, and the MongoDB Atlas database. GitHub is used to host the
+					source code and is linked to the Azure deployment to provide CI/CD to the
+					WebApp. Using Azure and GitHub demonstrates knowledge from Sprints 4 through
+					7 relating to Azure WebApp hosting, GitHub source code management, and 
+					CI/CD best practices.</p>
+		<h3>Demonstrating Learning From Outside the Class</h3>
+			<h4>Using Asynchronous JavaScript Fetch Requests</h4>
+				<p>Our time in class was more focused on single-page apps that did not have to 
+					perform any requests to other resources in order to function. Deadline Web
+					Services does need to do this. Specifically, the front end of the WebApp 
+					(written in React) interacts with the storage solution (MongoDB Atlas) by 
+					performing asynchronous JavaScript fetch requests to the logic-tier 
+					(written in Golang), which performs the database query and returns some 
+					data. As an additional challenge, the logic-tier implements this interaction
+					by exposing RESTful endpoint APIs. This means that the front end needs to
+					POST JSON data within the request, instead of a simple GET request. The 
+					solution we implmented is to use JavaScript fetch() requests with the async /
+					await syntax, which forces the WebApp to wait for the request to finish before
+					continuing. This prevents data from being POSTed to the logic-tier out of 
+					order, which would cause issues with the database queries.</p>
+			<h4>Establishing Database Connections in Code</h4>
+	</body>
+</html>
